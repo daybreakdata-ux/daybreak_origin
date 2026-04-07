@@ -5,7 +5,7 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'AI People Search',
+  title: 'ORIGIN Social Intelligence',
   description: 'Deep internet search for people information',
 }
 

@@ -46,7 +46,7 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
       <div className="container mx-auto px-4 py-8">
         <header className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">AI People Search</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-2">ORIGIN Social Intelligence</h1>
           <p className="text-lg text-gray-600">Deep internet search for comprehensive person information</p>
           <button
             onClick={() => setShowSettings(!showSettings)}
