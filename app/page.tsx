@@ -10,11 +10,16 @@ export default function Home() {
   const [loading, setLoading] = useState(false)
   const [showSettings, setShowSettings] = useState(false)
   const [customPrompt, setCustomPrompt] = useState('')
+  const [selectedProvider, setSelectedProvider] = useState('grok')
 
   useEffect(() => {
     const savedPrompt = localStorage.getItem('customPrompt')
     if (savedPrompt) {
       setCustomPrompt(savedPrompt)
+    }
+    const savedProvider = localStorage.getItem('selectedProvider')
+    if (savedProvider) {
+      setSelectedProvider(savedProvider)
     }
   }, [])
 
@@ -26,7 +31,7 @@ export default function Home() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ query, prompt: customPrompt || undefined }),
+        body: JSON.stringify({ query, prompt: customPrompt || undefined, provider: selectedProvider }),
       })
       const data = await response.json()
       setResults(data.result)
@@ -51,7 +56,7 @@ export default function Home() {
           </button>
         </header>
 
-        {showSettings && <Settings customPrompt={customPrompt} setCustomPrompt={setCustomPrompt} />}
+        {showSettings && <Settings customPrompt={customPrompt} setCustomPrompt={setCustomPrompt} selectedProvider={selectedProvider} setSelectedProvider={setSelectedProvider} />}
 
         <SearchForm onSearch={handleSearch} loading={loading} />
         <ResultsDisplay results={results} loading={loading} />
